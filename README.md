@@ -11,4 +11,13 @@ npm install
 cd BookingBuddy
 npm run dev
 ```
-Clik on link of localhost in terminal
+Click on link of localhost in terminal
+
+# How to push repo
+
+```bash
+git init
+git add .
+git commit -m "enter your commit message"
+git push -u origin master
+```
