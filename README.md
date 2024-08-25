@@ -19,5 +19,6 @@ Click on link of localhost in terminal
 git init
 git add .
 git commit -m "enter your commit message"
+git pull origin master
 git push -u origin master
 ```
