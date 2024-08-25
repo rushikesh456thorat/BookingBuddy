@@ -1,4 +1,4 @@
-#Get Started
+
 # Installation
 
 ```bash
