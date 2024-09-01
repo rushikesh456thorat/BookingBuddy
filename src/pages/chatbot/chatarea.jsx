@@ -1,33 +1,30 @@
-/* eslint-disable react/prop-types */
 import { useEffect, useRef } from "react";
-import AiChat from "./aichat";
-import UserChat from "./userchat";
+import AiChat from "../chatbot/aichat"; 
+import UserChat from "../chatbot/userchat";
+import useConvertion from "../../chatStore/conversation";
 
-const ChatArea = ({ messages }) => {
-    const chatEndRef = useRef(null);
 
+const ChatArea = () => {
+  const chatEndRef = useRef(null);
+  const { chat } = useConvertion()
+  
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+    
+  }, [chat]);
 
   return (
     <div className="chat-area">
-        {messages.map((msg,index) => (
-           <><UserChat key = {index} usertext={msg}/>
-           <AiChat key={index} reply="Apologies, but I’m currently not equipped to respond to your messages at this time." tktimg="" />
-           <div ref={chatEndRef} />
-           </>
-        ))}
-     
-      
+      {chat.map((msg, index) => (
+        msg.who === "user" ? (
+          <UserChat key={`user-${index}`} usertext={msg.response} />
+        ) : (
+          <AiChat key={`ai-${index}`} reply={msg.response} />
+        )
+      ))}
+      <div ref={chatEndRef} />
     </div>
   );
 };
-
-
-
-
-
-  
 
 export default ChatArea;

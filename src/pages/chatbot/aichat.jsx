@@ -1,44 +1,63 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 /* eslint-disable react/prop-types */
 const AiChat = ({ reply, tktimg }) => {
-    const [text,setText] = useState("")
+  const [text, setText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
+
   useEffect(() => {
     let i = 0;
-    const speed = 30; 
+    const speed = 10;
     const txt = reply;
-    let m = ""
+    let m = "";
+    if (!txt){
+      return
+    }
+
+    setIsTyping(true);
 
     function typeWriter() {
-       
       if (i < txt.length) {
         m += txt.charAt(i);
-        setText(m)
+        setText(m);
         i++;
         setTimeout(typeWriter, speed);
+      } else {
+        setIsTyping(false); // Stop typing animation
       }
     }
 
     typeWriter();
-  }, [reply]); 
+
+    return () => {
+      setIsTyping(false); // Cleanup in case the effect is interrupted
+    };
+  }, [reply]);
 
   return (
     <div className="ai-reply">
       <div className="reply">
         <div className="ai-icon">
           <img
-            src="https://cdn.oaistatic.com/_next/static/media/favicon-32x32.630a2b99.png"
+            src="https://i.pinimg.com/originals/37/de/fe/37defe4e260b089bc43392a9226e6d60.png"
             alt="AI Icon"
           />
         </div>
-        <div id="reply-txt" className="reply-txt">{text}</div>
+        <div id="reply-txt" className="reply-txt">
+          {text}
+          {isTyping == true && (
+            <div className="typing-indicator">
+              <div className="typing-dot"></div>
+            </div>
+          )}
+        </div>
       </div>
-      {tktimg ? (
+      {tktimg && (
         <div className="reply-image">
           <img src={tktimg} alt="Ticket" />
         </div>
-      ) : null}
-      <div className="extra-accessibility">
+      )}
+      <div className={`extra-accessibility`} style={{ visibility: isTyping ?  'hidden' :'visible'}}>
         <button className="read-aloud-btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"

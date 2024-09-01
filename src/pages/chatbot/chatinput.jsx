@@ -1,19 +1,21 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-const ChatInput = ({ onSend }) => {
+const ChatInput = ({ onSend, loading }) => {
   const [input, setInput] = useState("");
 
-  const handleSend = () => {
-    if (input.trim()) {
-      onSend(input);
-      setInput(""); 
+  const handleSend = async () => {
+    if (loading == true) {
+      return;
     }
+
+    onSend(input);
+    setInput("");
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = async (e) => {
     if (e.key === "Enter") {
-      handleSend();
+      await handleSend();
     }
   };
 
@@ -49,21 +51,36 @@ const ChatInput = ({ onSend }) => {
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-      <button className="send-btn" onClick={handleSend}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="send-svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
-          />
-        </svg>
+      <button className="send-btn" onClick={handleSend} >
+        {loading === false ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="send-svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+            />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="size-6"
+          >
+            <path
+              fillRule="evenodd"
+              d="M4.5 7.5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3v-9Z"
+              clipRule="evenodd"
+            />
+          </svg>
+        )}
       </button>
     </div>
   );
