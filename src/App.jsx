@@ -6,7 +6,10 @@ import Login from './pages/login/login.jsx';
 import SignUp from './pages/signup/signup.jsx';
 import ChatApp from "./pages/chatbot/chatapp.jsx";
 
+
 function App() {
+
+  
 
 
   return (

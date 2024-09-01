@@ -1,9 +1,12 @@
-/* All css write here */
+@import url("/src/pages/sidebar/sidebar.css");
+
+
 .chat-interface {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: calc(100vh - 2.5vh);
+  margin-left: 10%;
 }
 
 .chat-area {
@@ -15,12 +18,61 @@
   padding-top: 50px;
   gap: 50px;
 }
+.welcome{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 900px;
+  overflow-y: auto;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  gap: 50px;
+}
+.welcome ul{
+  padding: 10px;
+  width: 100%;
+  justify-content: space-evenly;
+  display: flex;
+  align-content: space-evenly;
+}
+.welcome li{
+  
+  border: 1px #3e3e3e solid;
+  height: 100px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  
+}
+.welcome img{
+  height: 80px;
+  width: 100px;
+}
+.wel-ico svg{
+  color: rgb(118, 208, 235);
+  width: 20px;
+  padding: 5px 0;
+  height: 20px;
+  font-size: 12px;
+}
+.wel-txt{
+  width: 120px;
+  font-size: 14px;
+  color: #a0a0a0;
+  font-weight: 300;
+  height: 50px;
+}
+
 .user-chat {
   align-self: self-end;
   background-color: #2f2f2f;
   border: 1px transparent solid;
   border-radius: 30px;
   padding: 15px;
+  text-align: center;
+  min-width: 50px;
   max-width: 80%;
 }
 .user-txt {
@@ -65,9 +117,14 @@
   height: 200px;
   width: 400px;
 }
-
-.extra-acessiblity {
-  padding-left: 45px;
+.visible{
+  visibility: visible;
+}
+.hidden{
+  visibility: hidden;
+}
+.extra-accessibility {
+  margin-left: 50px;
   margin-top: 10px;
 }
 
@@ -149,3 +206,52 @@
   padding-left: 20px;
   outline: none;
 }
+
+
+.chat-container {
+  display: flex;
+  align-items: center;
+}
+.Menu-label{
+  align-self: self-start;
+  width: 25px;
+}
+
+/* Add this CSS to your stylesheet */
+/* Add this CSS to your stylesheet */
+
+.typing-indicator {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.typing-dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 2px;
+  background-color: #ffffff; /* White dot */
+  border-radius: 50%;
+  animation: typing 0.5s infinite steps(1);
+}
+
+.typing-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+
+@keyframes typing {
+  0% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-1px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+}
+
