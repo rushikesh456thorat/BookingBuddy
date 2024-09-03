@@ -39,7 +39,7 @@ const AiChat = ({ reply, tktimg }) => {
       <div className="reply">
         <div className="ai-icon">
           <img
-            src="https://i.pinimg.com/originals/37/de/fe/37defe4e260b089bc43392a9226e6d60.png"
+            src="../../../public/ico-removebg-preview.png"
             alt="AI Icon"
           />
         </div>

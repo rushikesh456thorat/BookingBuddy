@@ -1,7 +1,14 @@
-const SideBar = () => {
+import { useNavigate } from 'react-router-dom';
 
+const SideBar = () => {
+  const navigate = useNavigate()
   const handleClick = (event)=>{
-    console.log(event)
+    if (event == "Booking"){
+      navigate("/")
+    }
+    if(event == "Explore"){
+      navigate("/explore")
+    }
   }
   return (
     <div className="side-bar">
@@ -80,25 +87,25 @@ const SideBar = () => {
           </div>
           <div className="li-label">Past Bookings</div>
         </li>
-        <li>
+        <li onClick={()=>{handleClick("Explore")}}>
           <div className="li-icon">
             <svg
-              width="35"
-              height="35"
+              width="25"
+              height="25"
               viewBox="0 0 35 35"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
                 d="M17.1453 31.4449C25.0362 31.4449 31.433 25.048 31.433 17.1571C31.433 9.26622 25.0362 2.86938 17.1453 2.86938C9.25443 2.86938 2.8576 9.26622 2.8576 17.1571C2.8576 25.048 9.25443 31.4449 17.1453 31.4449Z"
-                stroke="#ececec"
+                stroke="#e64a19"
                 strokeWidth="2.85755"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
               <path
                 d="M23.2033 11.0991L20.1743 20.1861L11.0873 23.2151L14.1163 14.1281L23.2033 11.0991Z"
-                stroke="#ececec"
+                stroke="#e64a19"
                 strokeWidth="2.85755"
                 strokeLinecap="round"
                 strokeLinejoin="round"

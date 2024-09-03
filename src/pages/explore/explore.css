@@ -1,0 +1,173 @@
+.exlopre{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+}
+.main{
+    display: flex;
+    width: 80%;
+    height: 100%;
+    flex-direction: column;
+    padding-top: 20px;
+}
+.exp-title h1{
+    color: #bdbfc0;
+    font-weight: 500;
+    font-size: 18px;
+}
+.main-lis {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 50px;
+    padding: 20px;
+    justify-content: space-evenly;
+    list-style: none; /* Remove bullet points */
+    margin: 0;
+}
+
+.event-card {
+    
+    width: 250px;
+    height: 350px;
+    border-radius: 15px;
+    background-color: rgb(28, 28, 28);
+    padding: 10px;
+    color: #ffffff; /* Set text color to white */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute space between elements */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.event-card:hover {
+    transform: translateY(-10px); /* Slightly lift the card on hover */
+}
+
+.card-img {
+    width: 100%;
+    height: 150px;
+    border-radius: 15px;
+    object-fit: cover; /* Ensure the image covers the entire area */
+}
+
+.card-info {
+    padding: 10px 0;
+    text-align: center; /* Center-align the text */
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.card-date {
+    font-size: 14px;
+    color: #ccc; /* Slightly lighter color for the date */
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #eee;
+    flex-grow: 1; /* Ensure description takes up remaining space */
+}
+.book-now-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff5722;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    margin-top: auto; /* Push the button to the bottom */
+    transition: background-color 0.3s ease;
+}
+
+.book-now-button:hover {
+    background-color: #e64a19; /* Darker shade on hover */
+}
+.museum-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    list-style: none;
+    margin: 0;
+}
+
+.museum-card {
+    background-color: rgb(28, 28, 28);
+    border: 2px solid  rgb(28, 28, 28);;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.museum-card:hover {
+    transform: translateY(-5px);
+}
+
+.museum-card-img-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.museum-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.museum-card:hover .museum-card-img {
+    transform: scale(1.05);
+}
+
+.museum-card-info {
+    padding: 15px;
+    text-align: center;
+    background-color: rgb(28, 28, 28);
+}
+
+.museum-card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ddd;
+    margin: 10px 0;
+}
+
+.museum-card-location {
+    font-size: 16px;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+.museum-book-now-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.museum-book-now-button:hover {
+    background-color: #0056b3;
+}
+
