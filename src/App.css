@@ -1,5 +1,5 @@
 @import url("/src/pages/sidebar/sidebar.css");
-
+@import url("/src/pages/explore/explore.css");
 
 .chat-interface {
   display: flex;
@@ -51,7 +51,7 @@
   width: 100px;
 }
 .wel-ico svg{
-  color: rgb(118, 208, 235);
+  color: #e64a19;
   width: 20px;
   padding: 5px 0;
   height: 20px;
@@ -95,8 +95,8 @@
   flex-direction: row;
 }
 .ai-icon img {
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
 }
 .reply-txt {
   color: #ececec;

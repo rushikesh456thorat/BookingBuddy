@@ -3,14 +3,19 @@ import { useState } from "react";
 
 const ChatInput = ({ onSend, loading }) => {
   const [input, setInput] = useState("");
+  const [image, setImage] = useState(null);
 
   const handleSend = async () => {
-    if (loading == true) {
+    if (loading) {
       return;
     }
-
+    if (image) {
+      // Handle image upload logic here
+      console.log("Image uploaded:", image);
+    }
     onSend(input);
     setInput("");
+    setImage(null); // Clear image after sending
   };
 
   const handleKeyDown = async (e) => {
@@ -19,10 +24,30 @@ const ChatInput = ({ onSend, loading }) => {
     }
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImage(file);
+      // Optionally, you can preview the image here
+      console.log("Selected image:", file);
+    }
+  };
+
+  const handleUploadClick = () => {
+    document.getElementById("fileInput").click();
+  };
+
   return (
     <div className="chat-input">
       <div className="upload-img">
-        <button className="upload-btn">
+        <input
+          type="file"
+          id="fileInput"
+          accept="image/*"
+          style={{ display: "none" }}
+          onChange={handleImageChange}
+        />
+        <button className="upload-btn" onClick={handleUploadClick}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -51,7 +76,7 @@ const ChatInput = ({ onSend, loading }) => {
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-      <button className="send-btn" onClick={handleSend} >
+      <button className="send-btn" onClick={handleSend}>
         {loading === false ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"

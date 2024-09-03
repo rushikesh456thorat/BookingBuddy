@@ -64,6 +64,7 @@ li{
 li svg{
     font-size: 18px;
     height: 25px;
+    color: #e64a19;
     width: 25px;
 }
 .li-label{
@@ -75,7 +76,7 @@ li svg{
     padding-left: 10px;
 }
 .webcenter{
-    color: #ececec;
+    color: #b6d310;
     width: 100%;
     display: flex;
     flex-direction: column;
